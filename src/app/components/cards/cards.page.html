@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-menu-button ></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>cards</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-searchbar search-icon="search-circle" placeholder="Custom Search Icon" (ionChange)="buscar($event)"></ion-searchbar>
+  <div class="container" *ngIf="valid">
+
+    <ion-slides mode="ios" pager="ios" scrollbar="ios">
+      <ion-slide *ngFor="let e of animes | pipe :text " >
+        <ion-card  style="text-align: center; margin: auto;" >
+          <img alt="Silhouette of mountains" src="{{e.images.jpg.image_url}}" style="margin-top: 10px;"/>
+          <ion-card-header>
+            <ion-card-title>{{e.title}}</ion-card-title>
+            
+          </ion-card-header>
+        
+          <ion-card-content style="max-lines: 5 ;">
+           {{e.synopsis}}
+          </ion-card-content>
+         
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+  <div class="container" *ngIf="!valid">
+
+    <ion-card style="text-align: center ;" >
+      <ion-thumbnail>
+        <ion-skeleton-text [animated]="true" style="width: 250px;margin-top: 10px; margin-left: 50px;height: 200px;"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-card-header>
+
+      </ion-card-header>
+    
+      <ion-card-content style="max-lines: 5 ;margin-top: 150px;">
+       <p ><ion-skeleton-text [animated]="true" style="width: 80%;margin: auto;height: 30px;"></ion-skeleton-text></p> 
+       <p><ion-skeleton-text [animated]="true" style="width: 70%;margin: auto; height: 20px;margin-top: 10px;"></ion-skeleton-text></p>
+       <p><ion-skeleton-text [animated]="true" style="width: 65%;margin: auto;height: 20px;"></ion-skeleton-text></p>
+       <p><ion-skeleton-text [animated]="true" style="width: 60%;margin: auto;height: 20px;"></ion-skeleton-text></p>
+       <p><ion-skeleton-text [animated]="true" style="width: 70%;margin: auto; height: 20px;"></ion-skeleton-text></p>
+      </ion-card-content>
+     
+    </ion-card>
+
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>badge</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-button (click)="add('F')" shape="round">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Followers</ion-label>
+      <ion-badge color="primary" >{{follow}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="add('L')" shape="round">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Likes</ion-label>
+      <ion-badge color="secondary">{{likes}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="add('S')" shape="round">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Stars</ion-label>
+      <ion-badge color="tertiary">{{stars}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="add('C')" shape="round">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Completed</ion-label>
+      <ion-badge color="success">{{complete}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="add('W')" shape="round">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Warnings</ion-label>
+      <ion-badge color="warning">{{warnings}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="add('N')" shape="round">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Notifications</ion-label>
+      <ion-badge color="danger">{{notify}}</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
